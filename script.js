@@ -100,6 +100,17 @@ function getPasswordOptions() {
 
 }
 
+// User selects password length
+var confirmLength = (prompt("Please choose between 10 and 64 characters for your password"));
+// If the answer falls outside of the specified criteria then loop back
+while(confirmLength <=10 || confirmLength >=64) {
+  alert("Password does not meet specified length requirement, please try again");
+  // User enters password length again
+  var confirmLength = (prompt("Please choose between 10 and 64 characters for your password"));
+}
+// Confirm choice of password length
+alert("You have chosen " + confirmLength + " characters for your password");
+
 // Function for getting a random element from an array
 function getRandom(arr) {
 
