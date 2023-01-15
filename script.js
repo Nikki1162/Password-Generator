@@ -48,3 +48,15 @@ function getPasswordOptions() {
     options["numericCharacters"]= confirm("Do you want numbers in your password?");
     options["lowerCasedCharacters"]= confirm("Do you want lower case characters in your password?");
     options["upperCasedCharacters"]= confirm("Do you want upper case characters in your password?");
+
+        // If the user has made their character selections and they are valid
+
+        var selectedOptions = Object.values(options);
+        selectedOptions.shift();
+        var isSelected = selectedOptions.some(function(checkSelected){
+          return checkSelected;
+        }); 
+        return(isSelected);
+      }
+      return options;
+    }
