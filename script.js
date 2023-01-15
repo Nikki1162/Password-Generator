@@ -17,56 +17,28 @@ var upperCasedCharacters = [
   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
 
-// Variable declaration
-var confirmLength = '';
-var confirmSpecialCharacters;
-var confirmNumericCharacters;
-var confirmLowerCasedCharacters;
-var confirmUpperCasedCharacters;
-
-// Function to prompt user for password options
+// Write a function prompting the user for their password choices
 function getPasswordOptions() {
 
-}
+  // Store user choices
+  var options = {};
+  
+  // Prompt the user to input their desired password length
+  var numChars = prompt("Please select your required numbers of characters between 10 and 64");
 
-// User selects password length
-var confirmLength = (prompt("Please choose between 10 and 64 characters for your password"));
-// If the answer falls outside of the specified criteria then loop back
-while(confirmLength <=10 || confirmLength >=64) {
-  alert("Password does not meet specified length requirement, please try again");
-  // User enters password length again
-  var confirmLength = (prompt("Please choose between 10 and 64 characters for your password"));
-}
-// Confirm choice of password length
-alert("You have chosen " + confirmLength + " characters for your password");
+  // Check validity of user choices
+  var isValid = passwordLengthCheck(numChars);
+  while(!isValid){
+    numChars = prompt("Please ensure you choose between 10 and 64 characters. Try again!");
+    isValid = passwordLengthCheck(numChars);
+  }
+  options["passwordLength"] = parseInt(numChars);
 
-// Function for getting a random element from an array
-function getRandom(arr) {
+  // When a valid password length has been selected
+  var isEnough = populateOptions();
+  while(!isEnough){
+    alert("Please ensure you select at least one characters type for your password. Try again!");
+    isEnough = populateOptions();
+  }
 
-}
-
-// Function to generate password with user input
-function generatePassword() {
-
-}
-
-// Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
-
-// Prompts for length, upper/lowercase, numbers, special characters
-// Store prompts within a variable
-// Validate password length is correct
-// If correct, go to next prompt
-// Otherwise, error message
-// 
+  console.log(options);
