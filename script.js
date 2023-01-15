@@ -42,3 +42,9 @@ function getPasswordOptions() {
   }
 
   console.log(options);
+
+  function populateOptions(){
+    options["specialCharacters"]= confirm("Do you want special characters in your password?");
+    options["numericCharacters"]= confirm("Do you want numbers in your password?");
+    options["lowerCasedCharacters"]= confirm("Do you want lower case characters in your password?");
+    options["upperCasedCharacters"]= confirm("Do you want upper case characters in your password?");
