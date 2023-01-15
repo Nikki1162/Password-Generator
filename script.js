@@ -60,3 +60,15 @@ function getPasswordOptions() {
       }
       return options;
     }
+
+    function passwordLengthCheck(numChars){
+      if(isNaN(numChars)){
+        return false;
+      }
+        else if(numChars<10 || numChars>64){
+          return false; 
+          }
+          else{
+            return true;
+          }
+      } 
