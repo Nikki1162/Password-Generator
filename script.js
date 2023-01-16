@@ -98,4 +98,16 @@ function getPasswordOptions() {
     characterChoices = characterChoices.concat(upperCasedCharacters);
     }
 
-    
+       // Create a for loop to loop over the array and select characters at random, adding characters to the string
+
+   var password = "";
+   var pwdLength = passwordOptions.passwordLength; 
+   var optLength = characterChoices.length;
+   for(var i = 0; i < pwdLength; i++){
+    var randomCharSelect = Math.floor(Math.random()*optLength);
+    password += characterChoices[randomCharSelect];
+   }
+
+   console.log(password);
+   return password;
+  }
