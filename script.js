@@ -24,21 +24,21 @@ function getPasswordOptions() {
   var options = {};
   
   // Prompt the user to input their desired password length
-  var numChars = prompt("Please select your required numbers of characters between 10 and 64");
+  var pwdCriteria = prompt("Please select your required numbers of characters between 10 and 64");
 
   // Check validity of user choices
-  var isValid = passwordLengthCheck(numChars);
+  var isValid = passwordLengthCheck(pwdLengthCheck);
   while(!isValid){
-    numChars = prompt("Please ensure you choose between 10 and 64 characters. Try again!");
-    isValid = passwordLengthCheck(numChars);
+    pwdCriteria = prompt("Please ensure you choose between 10 and 64 characters. Try again!");
+    isValid = passwordLengthCheck(pwdCriteria);
   }
-  options["passwordLength"] = parseInt(numChars);
+  options["passwordLength"] = parseInt(pwdCriteria);
 
   // When a valid password length has been selected
-  var isEnough = populateOptions();
-  while(!isEnough){
+  var pwdLengthCheck = populateOptions();
+  while(!pwdLengthCheck){
     alert("Please ensure you select at least one characters type for your password. Try again!");
-    isEnough = populateOptions();
+    pwdLengthCheck = populateOptions();
   }
 
   console.log(options);
@@ -62,11 +62,11 @@ function getPasswordOptions() {
     }
 
 // Write a function to check the user input is made up of valid options
-    function passwordLengthCheck(numChars){
-      if(isNaN(numChars)){
+    function passwordLengthCheck(pwdCriteria){
+      if(isNaN(pwdCriteria)){
         return false;
       }
-        else if(numChars<10 || numChars>64){
+        else if(pwdCriteria<10 || pwdCriteria>64){
           return false; 
           }
           else{
@@ -80,32 +80,32 @@ function getPasswordOptions() {
     var passwordOptions = getPasswordOptions();
 
     // Write an array with options to select characters at random
-    var characterChoices = [];
+    var chooseCharacters = [];
 
     if(passwordOptions.specialCharacters){
-    characterChoices = characterChoices.concat(specialCharacters);
+    chooseCharacters = chooseCharacters.concat(specialCharacters);
     }
 
     if(passwordOptions.numericCharacters){
-    characterChoices = characterChoices.concat(numericCharacters);
+    chooseCharacters = chooseCharacters.concat(numericCharacters);
     }
 
     if(passwordOptions.lowerCaseCharacters){
-    characterChoices = characterChoices.concat(lowerCasedCharacters);
+    chooseCharacters = chooseCharacters.concat(lowerCasedCharacters);
     }
 
     if(passwordOptions.upperCasedCharacters){
-    characterChoices = characterChoices.concat(upperCasedCharacters);
+    chooseCharacters = chooseCharacters.concat(upperCasedCharacters);
     }
 
        // Create a for loop to loop over the array and select characters at random, adding characters to the string
 
    var password = "";
    var pwdLength = passwordOptions.passwordLength; 
-   var optLength = characterChoices.length;
+   var optLength = chooseCharacters.length;
    for(var i = 0; i < pwdLength; i++){
     var randomCharSelect = Math.floor(Math.random()*optLength);
-    password += characterChoices[randomCharSelect];
+    password += chooseCharacters[randomCharSelect];
    }
 
    console.log(password);
@@ -113,7 +113,7 @@ function getPasswordOptions() {
   }
 
   // Use query selector to reference generate password button
-  var generateBtn = document.querySelector('#generate');
+  var generateButton = document.querySelector('#generate');
 
   // Use query selector to populate the password box with user's randomly generated password
   function writePassword() {
@@ -125,4 +125,4 @@ function getPasswordOptions() {
 }
 
 // Finally, add an event listener to the button in order to begin the process upon clicking the button
-generateBtn.addEventListener('click', writePassword);
+generateButton.addEventListener('click', writePassword);

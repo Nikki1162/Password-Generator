@@ -15,7 +15,7 @@ After the user answers all prompts, the password is randomly generated and displ
 
 ## **Result**
 
-![This is what the live application looks like when you open the console log within the browser](./assets/Password-Generator-Screenshot.png)
+![This is what the live application looks like when you open the console log within the browser](./assets/Password-Generator-Image.png)
 
 The GitHub repository link:
 
