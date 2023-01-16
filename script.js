@@ -112,8 +112,10 @@ function getPasswordOptions() {
    return password;
   }
 
+  // Use query selector to reference generate password button
   var generateBtn = document.querySelector('#generate');
 
+  // Use query selector to populate the password box with user's randomly generated password
   function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector('#password');
