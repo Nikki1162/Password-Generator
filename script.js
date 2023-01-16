@@ -61,6 +61,7 @@ function getPasswordOptions() {
       return options;
     }
 
+// Write a function to check the user input is made up of valid options
     function passwordLengthCheck(numChars){
       if(isNaN(numChars)){
         return false;
@@ -72,3 +73,29 @@ function getPasswordOptions() {
             return true;
           }
       } 
+
+// Function to generate password with user input
+  function generatePassword() {
+
+    var passwordOptions = getPasswordOptions();
+
+    // Write an array with options to select characters at random
+    var characterChoices = [];
+
+    if(passwordOptions.specialCharacters){
+    characterChoices = characterChoices.concat(specialCharacters);
+    }
+
+    if(passwordOptions.numericCharacters){
+    characterChoices = characterChoices.concat(numericCharacters);
+    }
+
+    if(passwordOptions.lowerCaseCharacters){
+    characterChoices = characterChoices.concat(lowerCasedCharacters);
+    }
+
+    if(passwordOptions.upperCasedCharacters){
+    characterChoices = characterChoices.concat(upperCasedCharacters);
+    }
+
+    
