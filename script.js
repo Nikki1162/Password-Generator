@@ -119,3 +119,10 @@ function getPasswordOptions() {
   function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector('#password');
+
+
+  passwordText.value = password;
+}
+
+// Finally, add an event listener to the button in order to begin the process upon clicking the button
+generateBtn.addEventListener('click', writePassword);
